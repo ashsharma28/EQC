@@ -35,7 +35,7 @@ public class Driver {
         try {
 
 
-            modelIn = new FileInputStream("C:\\Users\\admin\\Downloads\\en-pos-maxent.bin");
+            modelIn = new FileInputStream("src/NLPTools/en-pos-maxent.bin");
             model = new POSModel(modelIn);
 
             POSTaggerME tagger = new POSTaggerME(model);
@@ -47,7 +47,7 @@ public class Driver {
                     "number of items in the queue" ;
 
 
-            InputStream modelFOrToks = new FileInputStream("C:\\Users\\admin\\Downloads\\en-token.bin");
+            InputStream modelFOrToks = new FileInputStream("src/NLPTools/en-token.bin");
             TokenizerModel model2 = new TokenizerModel(modelFOrToks);
             Tokenizer tokenizer = new TokenizerME(model2);
             String tokens[] = tokenizer.tokenize(question);
