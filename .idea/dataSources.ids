@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - test@localhost" uuid="017c1672-e888-43cc-b217-0ce71ef1be19">
+    <database-info product="MySQL" version="5.6.14" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="test"/>
+    <table name="attendancerecord" schema="" catalog="test" type="TABLE">
+      <column name="description" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="path" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="contactus" schema="" catalog="test" type="TABLE">
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="category" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="message" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="corpus1" schema="" catalog="test" type="TABLE">
+      <column name="subject" sqlType="VARCHAR" precision="300" scale="0" nullable="true" jdbcType="12"/>
+      <column name="topic" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4"/>
+    </table>
+    <table name="credits" schema="" catalog="test" type="TABLE">
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="person" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+    </table>
+    <table name="event" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="5000" scale="0" nullable="true" jdbcType="12"/>
+      <column name="image" sqlType="VARCHAR" precision="75" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="expenses" schema="" catalog="test" type="TABLE">
+      <column name="amount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="reason" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="date" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+    </table>
+    <table name="filesrecord" schema="" catalog="test" type="TABLE">
+      <column name="subject" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="500" scale="0" nullable="false" jdbcType="12"/>
+      <column name="path" sqlType="VARCHAR" precision="190" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="gallery" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="label" sqlType="VARCHAR" precision="450" scale="0" nullable="true" jdbcType="12"/>
+      <column name="image" sqlType="VARCHAR" precision="450" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="homework" schema="" catalog="test" type="TABLE">
+      <column name="title" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="subject" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cls" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="file" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="login" schema="" catalog="test" type="TABLE">
+      <column name="userName" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="userType" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="userName"/>
+    </table>
+    <table name="mappings" schema="" catalog="test" type="TABLE">
+      <column name="mappingID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="tId" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="sid" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="mappingID"/>
+      <foreign-key name="mappings_ibfk_1" columns="tId" ref-table="topics" ref-schema="" ref-catalog="test" ref-columns="tId" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="mappings_ibfk_2" columns="sid" ref-table="subjects" ref-schema="" ref-catalog="test" ref-columns="sID" update-rule="3" delete-rule="3" deferrability="2"/>
+    </table>
+    <table name="missionvision" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Mission" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Vision" sqlType="VARCHAR" precision="1000" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="notice" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="image" sqlType="VARCHAR" precision="75" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="slider" schema="" catalog="test" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="image" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="staff" schema="" catalog="test" type="TABLE">
+      <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="designation" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="education" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="image" sqlType="VARCHAR" precision="75" scale="0" nullable="false" jdbcType="12"/>
+    </table>
+    <table name="student" schema="" catalog="test" type="TABLE">
+      <column name="userName" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <column name="addrress" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="cls" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    </table>
+    <table name="subjects" schema="" catalog="test" type="TABLE">
+      <column name="sID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="sName" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="sID"/>
+      <exported-key name="mappings_ibfk_2" table="mappings" schema="" catalog="test" columns="sid"/>
+    </table>
+    <table name="supplier" schema="" catalog="test" type="TABLE">
+      <column name="supplierid" sqlType="VARCHAR" precision="6" scale="0" nullable="true" jdbcType="12"/>
+      <column name="suppliername" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="suppliercontactno" sqlType="VARCHAR" precision="12" scale="0" nullable="true" jdbcType="12"/>
+      <column name="supplieremailid" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="topics" schema="" catalog="test" type="TABLE">
+      <column name="tId" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="Topics" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="tId"/>
+      <exported-key name="mappings_ibfk_1" table="mappings" schema="" catalog="test" columns="tId"/>
+    </table>
+    <table name="users" schema="" catalog="test" type="TABLE">
+      <column name="subject1" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="subject2" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="subject3" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12" def="Jy0n"/>
+      <column name="subject4" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12" def="Jy0n"/>
+      <column name="username" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <index name="unique_username" unique="true" columns="username"/>
+    </table>
+  </data-source>
+</component>

@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="MySQL - test@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="test">
+      <Visible>1</Visible>
+    </schema>
+    <table id="3" parent="2" name="attendancerecord"/>
+    <table id="4" parent="2" name="contactus"/>
+    <table id="5" parent="2" name="corpus1"/>
+    <table id="6" parent="2" name="credits"/>
+    <table id="7" parent="2" name="event"/>
+    <table id="8" parent="2" name="expenses"/>
+    <table id="9" parent="2" name="filesrecord"/>
+    <table id="10" parent="2" name="gallery"/>
+    <table id="11" parent="2" name="homework"/>
+    <table id="12" parent="2" name="login"/>
+    <table id="13" parent="2" name="mappings"/>
+    <table id="14" parent="2" name="missionvision"/>
+    <table id="15" parent="2" name="notice"/>
+    <table id="16" parent="2" name="slider"/>
+    <table id="17" parent="2" name="staff"/>
+    <table id="18" parent="2" name="student"/>
+    <table id="19" parent="2" name="subjects"/>
+    <table id="20" parent="2" name="supplier"/>
+    <table id="21" parent="2" name="topics"/>
+    <table id="22" parent="2" name="users"/>
+    <column id="23" parent="3" name="description">
+      <DataType>VARCHAR(500)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="24" parent="3" name="path">
+      <DataType>VARCHAR(200)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="25" parent="4" name="name">
+      <DataType>VARCHAR(45)|12</DataType>
+    </column>
+    <column id="26" parent="4" name="email">
+      <DataType>VARCHAR(45)|12</DataType>
+    </column>
+    <column id="27" parent="4" name="category">
+      <DataType>VARCHAR(45)|12</DataType>
+    </column>
+    <column id="28" parent="4" name="message">
+      <DataType>VARCHAR(1000)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="5" name="subject">
+      <DataType>VARCHAR(300)|12</DataType>
+    </column>
+    <column id="30" parent="5" name="topic">
+      <DataType>LONGBLOB(max)|-4</DataType>
+    </column>
+    <column id="31" parent="6" name="amount">
+      <DataType>INT(10)|4</DataType>
+    </column>
+    <column id="32" parent="6" name="person">
+      <DataType>VARCHAR(50)|12</DataType>
+    </column>
+    <column id="33" parent="6" name="date">
+      <DataType>DATE(10)|91</DataType>
+    </column>
+    <column id="34" parent="7" name="id">
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="35" parent="7" name="title">
+      <DataType>VARCHAR(45)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="36" parent="7" name="description">
+      <DataType>VARCHAR(5000)|12</DataType>
+    </column>
+    <column id="37" parent="7" name="image">
+      <DataType>VARCHAR(75)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="38" parent="7" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="39" parent="8" name="amount">
+      <DataType>INT(10)|4</DataType>
+    </column>
+    <column id="40" parent="8" name="reason">
+      <DataType>VARCHAR(50)|12</DataType>
+    </column>
+    <column id="41" parent="8" name="date">
+      <DataType>DATE(10)|91</DataType>
+    </column>
+    <column id="42" parent="9" name="subject">
+      <DataType>VARCHAR(5)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="9" name="description">
+      <DataType>VARCHAR(500)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="9" name="path">
+      <DataType>VARCHAR(190)|12</DataType>
+    </column>
+    <column id="45" parent="10" name="id">
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="46" parent="10" name="label">
+      <DataType>VARCHAR(450)|12</DataType>
+    </column>
+    <column id="47" parent="10" name="image">
+      <DataType>VARCHAR(450)|12</DataType>
+    </column>
+    <key id="48" parent="10" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="49" parent="11" name="title">
+      <DataType>VARCHAR(45)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="11" name="subject">
+      <DataType>VARCHAR(45)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="51" parent="11" name="cls">
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="11" name="file">
+      <DataType>VARCHAR(45)|12</DataType>
+    </column>
+    <column id="53" parent="12" name="userName">
+      <DataType>VARCHAR(15)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="54" parent="12" name="password">
+      <DataType>VARCHAR(20)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="55" parent="12" name="userType">
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="56" parent="12" name="PRIMARY">
+      <ColNames>userName</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="57" parent="13" name="mappingID">
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="58" parent="13" name="tId">
+      <DataType>INT(10)|4</DataType>
+    </column>
+    <column id="59" parent="13" name="sid">
+      <DataType>INT(10)|4</DataType>
+    </column>
+    <key id="60" parent="13" name="PRIMARY">
+      <ColNames>mappingID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="61" parent="13" name="mappings_ibfk_1">
+      <ColNames>tId</ColNames>
+      <RefTableName>topics</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>tId</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <foreign-key id="62" parent="13" name="mappings_ibfk_2">
+      <ColNames>sid</ColNames>
+      <RefTableName>subjects</RefTableName>
+      <RefKeyName>PRIMARY</RefKeyName>
+      <RefColNames>sID</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
+    </foreign-key>
+    <column id="63" parent="14" name="id">
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="64" parent="14" name="Mission">
+      <DataType>VARCHAR(1000)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="65" parent="14" name="Vision">
+      <DataType>VARCHAR(1000)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="66" parent="14" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="67" parent="15" name="id">
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="68" parent="15" name="title">
+      <DataType>VARCHAR(45)|12</DataType>
+    </column>
+    <column id="69" parent="15" name="description">
+      <DataType>VARCHAR(45)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="70" parent="15" name="image">
+      <DataType>VARCHAR(75)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="71" parent="15" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="72" parent="16" name="id">
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="73" parent="16" name="image">
+      <DataType>VARCHAR(500)|12</DataType>
+    </column>
+    <key id="74" parent="16" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="75" parent="17" name="name">
+      <DataType>VARCHAR(45)|12</DataType>
+    </column>
+    <column id="76" parent="17" name="designation">
+      <DataType>VARCHAR(45)|12</DataType>
+    </column>
+    <column id="77" parent="17" name="education">
+      <DataType>VARCHAR(45)|12</DataType>
+    </column>
+    <column id="78" parent="17" name="image">
+      <DataType>VARCHAR(75)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="18" name="userName">
+      <DataType>VARCHAR(15)|12</DataType>
+    </column>
+    <column id="80" parent="18" name="name">
+      <DataType>VARCHAR(25)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="81" parent="18" name="addrress">
+      <DataType>VARCHAR(30)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="82" parent="18" name="cls">
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="83" parent="19" name="sID">
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="84" parent="19" name="sName">
+      <DataType>VARCHAR(100)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="85" parent="19" name="PRIMARY">
+      <ColNames>sID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="86" parent="20" name="supplierid">
+      <DataType>VARCHAR(6)|12</DataType>
+    </column>
+    <column id="87" parent="20" name="suppliername">
+      <DataType>VARCHAR(20)|12</DataType>
+    </column>
+    <column id="88" parent="20" name="suppliercontactno">
+      <DataType>VARCHAR(12)|12</DataType>
+    </column>
+    <column id="89" parent="20" name="supplieremailid">
+      <DataType>VARCHAR(30)|12</DataType>
+    </column>
+    <column id="90" parent="21" name="tId">
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="91" parent="21" name="Topics">
+      <DataType>VARCHAR(500)|12</DataType>
+    </column>
+    <key id="92" parent="21" name="PRIMARY">
+      <ColNames>tId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="93" parent="22" name="subject1">
+      <DataType>VARCHAR(40)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="94" parent="22" name="subject2">
+      <DataType>VARCHAR(40)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="22" name="subject3">
+      <DataType>VARCHAR(40)|12</DataType>
+      <DefaultExpression>&apos;-&apos;</DefaultExpression>
+    </column>
+    <column id="96" parent="22" name="subject4">
+      <DataType>VARCHAR(40)|12</DataType>
+      <DefaultExpression>&apos;-&apos;</DefaultExpression>
+    </column>
+    <column id="97" parent="22" name="username">
+      <DataType>VARCHAR(32)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="98" parent="22" name="password">
+      <DataType>VARCHAR(15)|12</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="99" parent="22" name="unique_username">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+  </database-model>
+</dataSource>

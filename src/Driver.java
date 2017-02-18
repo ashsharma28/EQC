@@ -1,3 +1,5 @@
+
+import javafx.scene.paint.Color;
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.tokenize.Tokenizer;
@@ -7,7 +9,9 @@ import opennlp.tools.tokenize.TokenizerModel;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
+
+import java.sql.SQLException;
+import java.util.*;
 
 
 /**
@@ -18,16 +22,6 @@ import java.util.ArrayList;
 public class Driver {
 
     public static void main(String[] args) {
-
-
-	/*	CORPUS DATASTRUCTURES = NEW CORPUS("ASHISH", "SHARMA", "YUP");
-		HASHSET<STRING> STRINGSET = DATASTRUCTURES.GETSTRINGSET();
-
-		FOR (STRING A : STRINGSET) {
-			SYSTEM.OUT.PRINTLN(A);
-		}*/
-
-        ///////////////
 
         InputStream modelIn = null;
         POSModel model;
@@ -40,46 +34,61 @@ public class Driver {
 
             POSTaggerME tagger = new POSTaggerME(model);
 
+            FileInputStream fileInputStream = new FileInputStream("F:\\Dev\\EQC\\src\\NLPTools\\QP.txt");
+            byte[] bytes = new byte[fileInputStream.available()];
+            fileInputStream.read(bytes);
+
+            String QP = new String(bytes);
+            String[] questions = QP.split("Q[0-9].");
+
+            for (String question : questions) {
 
 
-            String question = "A queue is implemented using an array such that ENQUEUE and DEQUEUE operations are" +
-                    "performed efficiently. Which one of the following statements is CORRECT (n refers to the" +
-                    "number of items in the queue" ;
+                InputStream modelForToks = new FileInputStream("src/NLPTools/en-token.bin");
+                TokenizerModel model2 = new TokenizerModel(modelForToks);
+                Tokenizer tokenizer = new TokenizerME(model2);
+                String tokens[] = tokenizer.tokenize(question);
 
+                String tags[] = tagger.tag(tokens);
+                ArrayList<String> keywords = new ArrayList<>();
 
-            InputStream modelFOrToks = new FileInputStream("src/NLPTools/en-token.bin");
-            TokenizerModel model2 = new TokenizerModel(modelFOrToks);
-            Tokenizer tokenizer = new TokenizerME(model2);
-            String tokens[] = tokenizer.tokenize(question);
+                for (int i = 0; i < tags.length; i++) {
+                    if (tags[i].startsWith("N")) {
+                        keywords.add(tokens[i]);
+                    }
+                }
 
+                TreeMap<String, Integer> hashMap = new TreeMap<>();
 
-            String tags[] = tagger.tag(tokens);
-            ArrayList<String> keywords = new ArrayList<>();
+                for (String keyword : keywords) {
+                   if(keyword.length()<3 )continue;
 
-            for (int i = 0; i < tags.length; i++) {
+                    System.out.print(keyword + ": ");
+                    ArrayList<String> subjects = SQLWorker.getSubject(keyword);
 
-                System.out.print(tokens[i] + "- "  );
-                System.out.println(tags[i]);
+                    System.out.println(subjects);
 
-                if(tags[i].startsWith("N")){
-                    keywords.add(tokens[i]);
+                    for (String subject : subjects) {
+
+                        if(hashMap.containsKey(subject)){
+                            hashMap.put(subject, hashMap.get(subject) + 1);
+                        }
+                        else hashMap.put(subject, 1);
+                    }
 
                 }
+                System.out.println(hashMap);
+
+
+                System.out.println();
+                System.out.println();
+
 
 
             }
 
-            System.out.println("Keywords :-");
-            System.out.println(keywords);
 
-
-
-
-
-
-
-
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException | SQLException e) {
             // Model loading failed, handle the error
             e.printStackTrace();
         } finally {
@@ -92,5 +101,6 @@ public class Driver {
         }
 
     }
+
 }
 

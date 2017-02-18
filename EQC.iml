@@ -17,5 +17,14 @@
         <jarDirectory url="file://$MODULE_DIR$/../NLP/apache-opennlp-1.6.0/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://F:/MY/Setups/Dev/MySQL server/mysql-connector-java-5.1.6-bin.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
