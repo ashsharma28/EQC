@@ -1,5 +1,3 @@
-
-import javafx.scene.paint.Color;
 import opennlp.tools.postag.POSModel;
 import opennlp.tools.postag.POSTaggerME;
 import opennlp.tools.tokenize.Tokenizer;
@@ -9,9 +7,11 @@ import opennlp.tools.tokenize.TokenizerModel;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.TreeMap;
 
 
 /**
@@ -41,6 +41,21 @@ public class Driver {
             String QP = new String(bytes);
             String[] questions = QP.split("Q[0-9].");
 
+            List<String> list;
+            List<List<String>> documents = new ArrayList<>();
+
+
+            for (String question : questions) {
+                String[] split = question.split(" ");
+
+                list = new ArrayList<>();
+                for (String s : split) {
+                    list.add(s);
+                }
+                documents.add(list);
+            }
+
+
             for (String question : questions) {
 
 
@@ -48,6 +63,7 @@ public class Driver {
                 TokenizerModel model2 = new TokenizerModel(modelForToks);
                 Tokenizer tokenizer = new TokenizerME(model2);
                 String tokens[] = tokenizer.tokenize(question);
+
 
                 String tags[] = tagger.tag(tokens);
                 ArrayList<String> keywords = new ArrayList<>();
@@ -61,7 +77,7 @@ public class Driver {
                 TreeMap<String, Integer> hashMap = new TreeMap<>();
 
                 for (String keyword : keywords) {
-                   if(keyword.length()<3 )continue;
+                    if (keyword.length() < 3) continue;
 
                     System.out.print(keyword + ": ");
                     ArrayList<String> subjects = SQLWorker.getSubject(keyword);
@@ -70,10 +86,9 @@ public class Driver {
 
                     for (String subject : subjects) {
 
-                        if(hashMap.containsKey(subject)){
+                        if (hashMap.containsKey(subject)) {
                             hashMap.put(subject, hashMap.get(subject) + 1);
-                        }
-                        else hashMap.put(subject, 1);
+                        } else hashMap.put(subject, 1);
                     }
 
                 }
@@ -82,7 +97,6 @@ public class Driver {
 
                 System.out.println();
                 System.out.println();
-
 
 
             }
