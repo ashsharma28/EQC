@@ -4,12 +4,12 @@ import opennlp.tools.tokenize.Tokenizer;
 import opennlp.tools.tokenize.TokenizerME;
 import opennlp.tools.tokenize.TokenizerModel;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -21,35 +21,38 @@ import java.util.TreeMap;
 
 public class Driver {
 
+
+
     public static void main(String[] args) {
 
         InputStream modelIn = null;
         POSModel model;
+        InputUI inputUI = new InputUI();
+        inputUI.service(new File("F:\\Dev\\EQC\\src\\NLPTools\\QP.txt") ,"SampleQPType");
 
+
+/*
         try {
 
 
             modelIn = new FileInputStream("src/NLPTools/en-pos-maxent.bin");
             model = new POSModel(modelIn);
-
             POSTaggerME tagger = new POSTaggerME(model);
-
             FileInputStream fileInputStream = new FileInputStream("F:\\Dev\\EQC\\src\\NLPTools\\QP.txt");
             byte[] bytes = new byte[fileInputStream.available()];
             fileInputStream.read(bytes);
-
             String QP = new String(bytes);
             String[] questions = QP.split("Q[0-9].");
-
             List<String> list;
             List<List<String>> documents = new ArrayList<>();
 
 
             for (String question : questions) {
-                String[] split = question.split(" ");
+
+                String[] token = question.split(" ");
 
                 list = new ArrayList<>();
-                for (String s : split) {
+                for (String s : token) {
                     list.add(s);
                 }
                 documents.add(list);
@@ -63,9 +66,22 @@ public class Driver {
                 TokenizerModel model2 = new TokenizerModel(modelForToks);
                 Tokenizer tokenizer = new TokenizerME(model2);
                 String tokens[] = tokenizer.tokenize(question);
-
-
                 String tags[] = tagger.tag(tokens);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 ArrayList<String> keywords = new ArrayList<>();
 
                 for (int i = 0; i < tags.length; i++) {
@@ -80,7 +96,7 @@ public class Driver {
                     if (keyword.length() < 3) continue;
 
                     System.out.print(keyword + ": ");
-                    ArrayList<String> subjects = SQLWorker.getSubject(keyword);
+                    ArrayList<String> subjects = MapLogic.getSubject(keyword);
 
                     System.out.println(subjects);
 
@@ -113,6 +129,7 @@ public class Driver {
                 }
             }
         }
+*/
 
     }
 

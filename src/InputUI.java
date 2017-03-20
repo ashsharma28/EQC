@@ -1,4 +1,9 @@
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by Ashish Sharma on 19-Mar-17.
@@ -24,9 +29,9 @@ public class InputUI {
         this.paper = paper;
     }
 
-    void Service(File paper, String paperType){
+    public void service(File paper, String paperType){
 
-        String[] questions = getQuestions(paper, paperType);
+        ArrayList<String> questions = getQuestions(paper, paperType);
 
         MapLogic mapLogic = new MapLogic();
 
@@ -37,8 +42,21 @@ public class InputUI {
 
     }
 
-    private String[] getQuestions(File paper, String paperType) {
-        //TODO : get Questions.
-        return new String[0];
+    private ArrayList<String> getQuestions(File paper, String paperType) {
+
+        String[] questions = null;
+        try {
+            FileInputStream fileInputStream = new FileInputStream(paper);
+            byte[] bytes = new byte[fileInputStream.available()];
+            fileInputStream.read(bytes);
+            String QP = new String(bytes);
+            questions = QP.split("Q[0-9].");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return new ArrayList<>(Arrays.asList(questions));
     }
 }

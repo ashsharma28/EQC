@@ -1,6 +1,8 @@
 import com.google.gson.Gson;
 
-import java.util.HashMap;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.TreeMap;
 
 /**
  * Created by Ashish Sharma on 18-Mar-17.
@@ -24,22 +26,43 @@ public class MapLogic {
 
     }
 
-    public void initiate(String[] questions) {
+    public void initiate(ArrayList<String> questions) {
 
-        HashMap<String[],String[]> taggedQuestions =  NLTools.POSTag(questions);
-        Context context = NLTools.ContextIdentify(taggedQuestions);
+        TreeMap<ArrayList<String>, ArrayList<String>> taggedQuestions =  NLTools.POSTag(questions);
 
-        KeywordCorpusWrapper corpusWrapper = new KeywordCorpusWrapper();
-        String[] keywords = corpusWrapper.queryFromDB();
+        //Context context = NLTools.ContextIdentify(taggedQuestions);
+        //String[] keywords = new KeywordCorpusWrapper().queryFromDB();
 
-        HashMap<String , Integer> JsonMap = NLTools.findMatchingSubject(keywords);
-        OutputUI outputUI = new OutputUI();
+        TreeMap<Integer, TreeMap<String, Double>> JsonMap = NLTools.findMatchingSubject(taggedQuestions);
 
-        Gson gson = new Gson();
-        String json = gson.toJson(JsonMap);
+        String json = new Gson().toJson(JsonMap);
+        new OutputUI().setResultJSON(json);
 
-        outputUI.setResultJSON(json);
 
 
     }
+
+
+    public static ArrayList<String> getSubject(String keyword) throws ClassNotFoundException, SQLException {
+
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "", "");
+
+        PreparedStatement statement = con.prepareStatement("SELECT sName from subjects where subjects.sID IN (SELECT mappings.sid FROM mappings\n" +
+                "where tId in (SELECT topics.tId FROM topics WHERE topics.Topics LIKE ?) );");
+
+        statement.setString(1, "%" + keyword + "%");
+        ResultSet resultSet = statement.executeQuery();
+
+        ArrayList<String> result = new ArrayList<>();
+        while (resultSet.next()){
+            result.add(resultSet.getString(1));
+        }
+
+        return result;
+
+
+    }
+
+
 }

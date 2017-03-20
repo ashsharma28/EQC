@@ -18,6 +18,7 @@ public class OutputUI {
     }
 
     public void setResultJSON(String resultJSON) {
+        System.out.println(resultJSON);
         this.resultJSON = resultJSON;
     }
 }
