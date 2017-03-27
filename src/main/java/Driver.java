@@ -28,7 +28,7 @@ public class Driver {
         InputStream modelIn = null;
         POSModel model;
         InputUI inputUI = new InputUI();
-        inputUI.service(new File("F:\\Dev\\EQC\\src\\NLPTools\\QP.txt") ,"SampleQPType");
+        inputUI.service(new File("C:\\Users\\admin\\Desktop\\QP.txt") ,"SampleQPType");
 
 
 /*

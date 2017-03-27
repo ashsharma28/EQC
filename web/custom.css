@@ -1,0 +1,134 @@
+#bdy
+{
+background-image: url('images/backgnd7.jpg');
+background-repeat: no-repeat;
+background-size: 100% 100%;  
+}
+
+#ico
+{
+  margin-top:1%;
+  margin-bottom:2%;
+}
+#navbar
+{
+  padding-top:2%;
+  font-size: 140%;   
+}
+#imgcarou
+{
+  margin-top:7.78%;
+  margin-left:25%;
+  max-height:50%;
+  width:50%;
+    
+}
+
+#nav
+{
+  position:fixed;
+  z-index:1;
+  width:100%;
+}
+#nav:hover
+{
+ box-shadow: 10px 10px 2px #888888;  
+}
+#aboutus h1
+{
+  box-shadow: 4px 4px 1px #888888;
+  font-family: 'Lora', serif;
+  font-size: 2em;
+  padding:2%;
+  color:white;
+  font-weight: bold;
+  text-decoration: underline;
+  display:block;
+  
+  background-color: chocolate;
+}
+
+#services h1
+{
+  box-shadow: 4px 4px 1px #888888;
+  font-family: 'Lora', serif;
+  font-size: 2em;
+  padding:2%;
+  color:white;
+   border-radius:4%;
+  font-weight: bold;
+  text-decoration: underline;
+  display:block;
+  
+  background-color: chocolate;
+}
+#contact h1
+{
+  box-shadow: 4px 4px 1px #888888;
+  font-family: 'Lora', serif;
+  font-size: 2em;
+  padding:2%;
+  color:white;
+  font-weight: bold;
+  text-decoration: underline;
+  display:block;
+   border-radius:4%;
+  background-color: chocolate;
+}
+#services
+{
+  border-radius:2%;
+  margin:1%;
+  border: solid 3px white;
+}
+#aboutus
+{
+  margin:1%;
+  border-radius:2%;
+  border: solid 3px white;
+}
+#contact
+{
+  margin:1%;
+  border-radius:2%;
+  border: solid 3px white;
+}
+#carousel
+{
+  color:black;
+  
+  background-color: white;
+}
+#ceo
+{
+  color:white;
+}
+#services img
+{
+    border-radius:100%;
+    
+    vertical-align:middle;
+}
+#aboutus p{
+  margin-top:3%;
+}
+#services p{
+  margin-top:3%;
+}
+#contact p{
+  margin-top:3%;
+}
+#foot{
+  background-color:black;
+  width:100%;
+  color:white;
+   font-family: 'Lora', serif;
+  font-size: 2em;
+  padding:2%;
+  color:white;
+  font-weight: bold;
+  display:block;
+ 
+  height:10%;
+  margin-top:-2%;
+}

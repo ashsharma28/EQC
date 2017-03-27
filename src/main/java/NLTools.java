@@ -33,14 +33,14 @@ public class NLTools {
         InputStream modelIn = null;
         POSModel model;
         try {
-            modelIn = new FileInputStream("src/NLPTools/en-pos-maxent.bin");
+            modelIn = new FileInputStream("src/main/java/NLPTools/en-pos-maxent.bin");
             model = new POSModel(modelIn);
             POSTaggerME tagger = new POSTaggerME(model);
 
             String[] tags;
             String[] tokens ;
             for (String question : questions) {
-                InputStream modelForToks = new FileInputStream("src/NLPTools/en-token.bin");
+                InputStream modelForToks = new FileInputStream("src/main/java/NLPTools/en-token.bin");
                 TokenizerModel model2 = new TokenizerModel(modelForToks);
                 Tokenizer tokenizer = new TokenizerME(model2);
                 tokens = tokenizer.tokenize(question);

@@ -1,0 +1,71 @@
+.first{
+	 padding-top:2em;
+    height:50%;
+    width:90%;
+    float:right;
+     margin-top:2.5%;
+}
+.second{
+	padding-top:2em;
+	height:50%;
+	width:90%;
+	float:right;
+}
+.hover,
+.hover h2 {
+  text-align: center;
+  font-size:15px;
+   
+}
+.box{
+	height:100%;
+	border:2px solid red;
+	width:100%;
+	float: right;
+}
+body {
+  font-family: colaborate-thinregular, sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+    background-image: url('/images/backgnd7.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #FFF
+
+}
+
+input{
+    border-radius: 2%;
+    border-color: darkred;
+    margin: 0.1%;
+}
+
+
+.hover {
+  float: left;
+  position: relative;
+  cursor: default;
+  border:2px solid black;
+    border-radius: 2%;
+    box-shadow: 2px 2px 2px 2px gray;
+
+}
+
+.hover:hover{
+    box-shadow: 2px 2px 20px 2px gray;
+
+}
+
+
+
+
+a.link{
+     float:left;
+    width:89%;
+    color:#333;
+    height:100%;
+	font-size:500%;
+    text-decoration: darkslategrey;
+     font-family: colaborate-thinregular, sans-serif;
+}
+
