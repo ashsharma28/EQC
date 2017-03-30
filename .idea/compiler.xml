@@ -9,7 +9,7 @@
         <module name="EQC" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="EQC" target="1.8" />
     </bytecodeTargetLevel>
   </component>
