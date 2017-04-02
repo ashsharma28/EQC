@@ -2,25 +2,26 @@ package com.springapp.mvc.NLPTools;
 
 /**
  * Created by Ashish Sharma on 01-Mar-17.
+ * Calculates the Tf-FId of the given document in a set of Documents.
+ * The tf function and the idff function individually calculate the tf and idf respectively and the tfidf func finally gives th log.
  */
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-/**
- * @author Mohamed Guendouz
- */
+
 public class TFIDFCalculator {
     /**
      * @param doc  list of strings
      * @param term String represents a term
      * @return term frequency of term in document
      */
-    public double tf(List<String> doc, String term) {
+    private double tf(List<String> doc, String term) {
         double result = 0;
         for (String word : doc) {
             if (term.equalsIgnoreCase(word))
@@ -34,7 +35,7 @@ public class TFIDFCalculator {
      * @param term String represents a term
      * @return the inverse term frequency of term in documents
      */
-    public double idf(List<List<String>> docs, String term) {
+    private double idf(List<List<String>> docs, String term) {
         double n = 0;
         for (List<String> doc : docs) {
             for (String word : doc) {
@@ -53,7 +54,7 @@ public class TFIDFCalculator {
      * @param term term
      * @return the TF-IDF of term
      */
-    public double tfIdf(List<String> doc, List<List<String>> docs, String term) {
+    private double tfIdf(List<String> doc, List<List<String>> docs, String term) {
 
         return tf(doc, term) * idf(docs, term);
     }
@@ -61,8 +62,6 @@ public class TFIDFCalculator {
     public static void main(String[] args) throws IOException {
 
         //Application.launch();
-
-
         FileInputStream fileInputStream = new FileInputStream("F:\\Dev\\EQC\\src\\NLPTools\\QP.txt");
         byte[] bytes = new byte[fileInputStream.available()];
         fileInputStream.read(bytes);
@@ -79,9 +78,7 @@ public class TFIDFCalculator {
         for (String question : questions) {
             String[] split = question.split(" ");
             list = new ArrayList<>();
-            for (String s : split) {
-                list.add(s);
-            }
+            Collections.addAll(list, split);
             documents.add(list);
         }
 
@@ -97,7 +94,7 @@ public class TFIDFCalculator {
             String report = "";
             for (String s : document) {
                 s = s.trim();
-                s = s.replaceAll("[.,:();?\"'~`!{}\\[\\]\\//0-9]", "");
+                s = s.replaceAll("[.,:();?\"'~`!{}\\[\\]\\/0-9]", "");
                 if(s.length()<= 2) continue;
 
                 tfidf = calculator.tfIdf(document, documents, s);

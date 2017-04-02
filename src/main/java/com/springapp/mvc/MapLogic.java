@@ -45,14 +45,19 @@ public class MapLogic {
 
         //Context context = NLTools.ContextIdentify(taggedQuestions);
         //String[] keywords = new KeywordCorpusWrapper().queryFromDB();
-
         TreeMap<Integer, TreeMap<String, Double>> JsonMap = NLTools.findMatchingSubject(taggedQuestions);
 
 
         HashMap<String, TreeMap<String, Double>> modified = new HashMap<>();
         JsonMap.forEach((index, toKeepAsItIs) -> {
-            modified.put(questions.get(index) , toKeepAsItIs);
+            if(index!=2){
+
+                modified.put(questions.get(index) , toKeepAsItIs);
+            }
         });
+
+
+
 
         String json = new Gson().toJson(JsonMap);
         new OutputUI().setResultJSON(json);
@@ -60,10 +65,22 @@ public class MapLogic {
     }
 
 
+    static Connection con;
+    {
+
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "", "");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public static ArrayList<String> getSubject(String keyword) throws ClassNotFoundException, SQLException {
 
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test", "", "");
 
         PreparedStatement statement = con.prepareStatement("SELECT sName from subjects where subjects.sID IN (SELECT mappings.sid FROM mappings\n" +
                 "where tId in (SELECT topics.tId FROM topics WHERE topics.Topics LIKE ?) );");

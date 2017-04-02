@@ -24,13 +24,10 @@
     <style>
         @font-face {
                 font-family: 'Raleway'; /*a name to be used later*/
-                src: url('/www/css/Raleway-Light.ttf'); /*URL to font*/
+                src: url('css/Raleway-Thin.ttf'); /*URL to font*/
         }
         body *::selection{
             background: #F5C52C;
-        }
-        body *{
-            transition: all 1s;
         }
         .first-pg,.vid-pg,.demo-pg{
             margin-bottom: 115px;
@@ -69,10 +66,25 @@
             color: #c9c9c9;
             padding-right: 12px;
         }
+        hr.or{
+            margin-top: 10px;
+            margin-bottom: 3px;
+        }
+        hr.or::after{
+            content:"OR";
+            display: inline-block;
+            position: relative;
+            font-size: 2em; 
+            background: white;
+            transform:scale(0.5);
+            padding 0em 0.25em;
+            top: -0.77em;
+            left: 46%;
+            color:lightgray;
+        }
         video {
             object-fit: fill;
             cursor: pointer;
-            margin-top: 30px;
         }
         .eqc-icon{
             height: auto;
@@ -80,59 +92,34 @@
             float: left;
             border: 2px solid black;
             margin-top: 27px;
-            margin-left: -30px;
         }
         .nav{
-            padding-left: 10%;
             position: fixed;
+            height: 108px;
             width: 100%;
-            z-index: 9999;
-            background:linear-gradient(to right, #33C3F0, #0FA0CE);
-            color: white;
+            background: white;
         }
         .nav h4{
             margin-top: 12px;
             margin-left: 67px;
         }
-        .disabled{
-            background: lightgray;
-            color: lightgray;
-        }
-        .disabled *{
-            background: lightgray;
+        .nav-hr{
+            width: 100%;
+            position: fixed;
+            margin-top: 108px;
+            border-color: black;
         }
     </style>
-    
-  <!-- JS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <script src=" js/jquery-3.2.0.min.js"></script>
     <script>
         var playState = 0;// 0 = paused
         function playVid(){
             if(playState == 0){
-                document.getElementById('vid1').style = "transform: scale(1.2); margin-left:70px;";
                 document.getElementById('vid1').play();
                 playState = 1;
             }
             else{
-
-                document.getElementById('vid1').style = "transform: scale(1); margin-left:0px;";
                 document.getElementById('vid1').pause();
                 playState = 0;
-            }
-        }
-
-        /*-----------------UI Scripts--------------------------*/
-
-        function displayAdvancedOptions(){
-            var div = document.getElementById('advancedOptions');
-            if(div.style.height[0] != "0"){
-                div.style.height = "0";
-                div.style.opacity = "0";
-            }
-            else{
-                div.style.height = "auto";
-                div.style.opacity = "1";
             }
         }
     </script>
@@ -145,84 +132,68 @@
 
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  <div class="nav">
-      <img class="eqc-icon" src="images/favicon.png"/>&nbsp;&nbsp;<h4>Examination Question Paper Analysis</h4>
-  </div>
-  <div style="height:250px; width: 100%; background:linear-gradient(to right, #33C3F0, #0FA0CE);"></div>
+    <hr class="nav-hr">
   <div class="container">
+      <div class="nav">
+        <img class="eqc-icon" src="images/favicon.png"/>&nbsp;&nbsp;<h4>Examination Question Paper Classification & Analysis</h4>
+      </div>
     <div class="row first-pg">
-      <div class="six columns" style="margin-top:10%;">
-        <h3>Here's what our app <span style="color:#33C3F0">EQC</span> is</h3>
+      <div class="six columns" style="margin-top: 25%;">
+        <h3>Here's what EQC is</h3>
         <p>EQC is an application of Natural Language Processing which refers to the use and ability of computer systems to understand and process chunks of lemma belonging to a natural language such as English. Relation establishment is a key NLP technique for exploring significant relations that would be useful for information retrieval, classification and summarization. EQC is a novel approach of applying NLP to Academia for analysis of academic evaluatory techniques primarily competitive written examinations.</p>
       </div>
     </div>
     <div class="row vid-pg">
         <div class="eight columns">
-        <h3>Here's how the tech behind it works</h3>
-            <video id="vid1" width="700px" height="320px" style="border:1px solid black" onclick="playVid()" poster="images/play.png">
+        <h3>Here's how the tech works</h3>
+            <video id="vid1" width="700px" height="360px" style="border:1px solid black" onclick="playVid()" poster="images/play.png">
               <source src="videos/NLP3.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
       </div>
     <div class="demo-pg">
-        <h3>Here's how you use the algorithm</h3>
-        <div class="row">
-            <div class="six columns"><h6><b style="color:#33C3F0">Hint:</b> It's as simple as 1,2,3 ! :)</h6></div>
-            <div class="six columns">
-                <button style="margin-left: 30%" id="advBtn" type="button" onclick="displayAdvancedOptions()">Advanced Options</button>
-            </div>
-        </div>
-        <form action="/eqc/get" method="post">
+        <h3>Here's how you get started</h3>
+      <form action="/eqc/form" method="post" enctype="multipart/form-data">
       <div class="row">
         <div class="six columns">
-          <label for="ip1"><span class="number">1</span>Select Subject or Domain</label>
+          <label for="ip1"><span class="number">1</span>Select Ques. Paper Type</label>
           <select class="u-full-width" id="ip1">
             <option value="Option 0">Select one option</option>
-            <option value="Option 1">CS & IT</option>
-            <option value="Option 2">Electronics</option>
-            <option value="Option 1">Mechanical</option>
-            <option value="Option 1">Civil</option>
-            <option value="Option 2">History</option>
+            <option value="Option 1">GATE (CS & IT)</option>
+            <option value="Option 2">UPSC (History)</option>
+            <option value="Option 3">Custom</option>
           </select>
-            <label for="ip2"><span class="number">2</span>Select Question Paper</label>
-            <div class="fileContainer">
-                <p id="ip2p" style="text-align:center; color:gray;">Drag and drop files here</p>
-                <input type="file" id = "ip2"/>
-            </div>
-            <label for="ip3"><span class="number">3</span>Select Document Type</label>
-            <select class="u-full-width" id="ip3">
-                <option value="Option 0">Select one option</option>
-                <option value="Option 1">Text Selectable Document</option>
-                <option value="Option 2">Scanned Document</option>
-            </select>
+            <hr class="or"/>
+            <label for="ip2"><span class="number">2</span>Select Subject</label>
+          <select class="u-full-width" id="ip2">
+            <option value="Option 0">Select one option</option>
+            <option value="Option 1">Physics</option>
+            <option value="Option 2">Chemistry</option>
+            <option value="Option 3">Mathematics</option>
+            <option value="Option 4">Data Structures</option>
+          </select>
+            <br>
+            <label for="ip3"><span class="number">3</span>Select File Type</label>
+          <select class="u-full-width" name="name" id="ip3">
+            <option value="none">Select one option</option>
+            <option value="docx">Microsoft Word Format (.docx)</option>
+            <option value="pdf">Portable Document Format (.pdf)</option>
+            <option value="text">ASCII Text Format (.txt)</option>
+          </select>
         </div>
         <div class="six columns">
-            <div id="advancedOptions">
-                <label for="ip4"><span class="number">4</span>Marks Distribution</label>
-                <select class="u-full-width" id="ip4">
-                    <option value="Option 0">Select one option</option>
-                    <option value="Option 1">Evenly Distributed</option>
-                    <option value="Option 2">Custom Distribution</option>
-                </select>
-                <div id="">
-                    <label for="ip4b"><span class="number">4b</span>Marks Distribution File</label>
-                    <div id="customMarksFileUploader" class="fileContainer">
-                        <p style="text-align:center; color:gray;">Upload file containing question number and its marks</p>
-                        <input type="file" id = "ip4b"/>
-                    </div>
-                </div>
-                <div>
-                    <label for="ip5"><span class="number">5</span>Upload Course Objectives</label>
-                    <div class="fileContainer">
-                        <p id="ip5p" style="text-align:center; color:gray;">Drag and drop files here</p>
-                        <input type="file" id = "ip5"/>
-                    </div>
-                </div>
-            </div>
+          <label for="ip4"><span class="number">4</span>Upload Ques. Paper</label>
+          <label class="fileContainer">
+              <p style="text-align:center; color:gray;">Drag and drop files here</p>
+            <input type="file" name="file" id = "ip4"/>
+            </label>
+            <label for="ip5"><span class="number">5</span>Comments (optional)</label>
+            <input type="text" class="u-full-width" placeholder="Type your comments here..." id="ip5"/>
+            <label for="ip6"><span class="number">6</span>Upload Course Objectives</label>
+            <textarea style="background: lightgray; cursor:no-drop;" disabled="disabled" class="u-full-width" placeholder="Coming soon..." id="ip6"></textarea>
         </div>
          </div>
-          <br>
       <input class="button-primary" type="submit" value="Submit">
     </form>
   </div>  

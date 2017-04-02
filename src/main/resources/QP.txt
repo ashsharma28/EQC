@@ -15,3 +15,45 @@ In an IPv4 datagram, the M bit is 0, the value of HLEN is 10, the value of total
 
 Q6.
 The preorder traversal sequence of a binary search tree is 30, 20, 10, 15, 25, 23, 39, 35, 42. Which one of the following is the postorder traversal sequence of the same tree?
+
+Q7.
+Consider the function f(x) = sin(x) in the interval x  [π/4, 7π/4]. The number and location(s) of the local minima of this function are
+
+Q8.
+What is the complement of the language accepted by the NFA shown below? Assume x = {a} and e is the empty string.
+
+Q9.
+Which of the following statements are TRUE about an SQL query
+
+Q10.
+The recurrence relation capturing the optimal execution time of the Towers of Hanoi problem with n discs is
+
+Q11.
+Let G be a simple undirected planar graph on 10 vertices with 15 edges. If G is a connected graph, then the number of bounded faces in any embedding of G on the plane is equal to
+
+Q12.
+The amount of ROM needed to implement a 4 bit multiplier is
+
+Q13.
+Register renaming is done in pipelined processors.
+
+Q14.
+In the IPv4 addressing format, the number of networks allowed under Class C addresses is
+
+Q15.
+Which of the following graphs is isomorphic to
+
+Q16.
+Consider the 3 processes, P1, P2 and P3 shown in the table. The completion order of the 3 processes under the policies FCFS and RR2 (round robin scheduling with CPU quantum of 2 time units) are
+
+Q17.
+F etch_And_Add(X,i) is an atomic Read-Modify-Write instruction that reads the value of memory location X, increments it by the value i, and returns the old value of X. It is used in the pseudocode shown below to implement a busy-wait lock. L is an unsigned integer shared variable initialized to 0. The value of 0 corresponds to lock being available, while any non-zero value corresponds to the lock being not available.
+
+Q18.
+An Internet Service Provider (ISP) has the following chunk of CIDR-based IP addresses available with it: 245.248.128.0/20. The ISP wants to give half of this chunk of addresses to Organization A, and a quarter to Organization B, while retaining the remaining with itself. Which of the following is a valid allocation of addresses to A and B?
+
+Q19.
+Consider the directed graph shown in the figure below. There are multiple shortest paths between vertices S and T. Which one will be reported by Dijkstra’s shortest path algorithm? Assume that, in any iteration, the shortest path to a vertex v is updated only when a strictly shorter path to v is discovered.
+
+Q20.
+Consider the set of strings on {0,1} in which, every substring of 3 symbols has at most two zeros. For example, 001110 and 011001 are in the language, but 100010 is not. All strings of length less than 3 are also in the language. A partially completed DFA that accepts this language is shown below.
